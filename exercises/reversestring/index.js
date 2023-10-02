@@ -13,7 +13,7 @@ function reverse(str) {
     const arr3 = str.split('')
     for (let i = arr.length - 1; i >= 0; i--) {
         newArr.push(arr[i])
-        // console.log(oldstr[i]);
+        debugger
     }
     return newArr.join('')
 }
@@ -38,5 +38,14 @@ function reverse3(str) {
     }
     return reversed
 }
-console.log(reverse3('abcd'));
-module.exports = reverse3;
+
+function reverse4(str) {
+    const arrStr = str.split('')
+    // reduce((retornoAcumulativo, elementoDelArreglo)=>,'')
+    const reverseStr = arrStr.reduce((reverseStr, character) => {
+        return character + reverseStr
+    }, '')
+    return reverseStr
+}
+console.log(reverse('abcd'));
+module.exports = reverse;
