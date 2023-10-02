@@ -7,19 +7,36 @@
 //   reverse('Greetings!') === '!sgniteerG'
 
 function reverse(str) {
-    const newstr = []
-    const oldstr = [...str]
-    const oldstr2 = Array.from(str)
-    const strsplit = str.split('')
-    console.log('con metodo split: ', strsplit);
-    console.log('con metodo Array.from: ', oldstr2);
-    for (let i = oldstr.length - 1; i >= 0; i--) {
-        newstr.push(oldstr[i])
+    const newArr = []
+    const arr = [...str]
+    const arr2 = Array.from(str)
+    const arr3 = str.split('')
+    for (let i = arr.length - 1; i >= 0; i--) {
+        newArr.push(arr[i])
         // console.log(oldstr[i]);
     }
-    console.log(newstr);
-    console.log(newstr.join(''));
-    return newstr.join('')
+    return newArr.join('')
 }
-reverse('dcba')
-module.exports = reverse;
+// reverse('dcba')
+
+function reverse2(str) {
+    const arr = str.split('')
+    arr.reverse() // Mutate
+    const revStr = arr.join('')
+    return revStr
+}
+
+function reverse3(str) {
+    let reversed = ''
+    for (const character of str) {
+        reversed = character + reversed
+        // 'a'
+        // 'p'+'a'
+        // 'p'+'pa'
+        // 'l'+'ppa'
+        // 'e'+'lppa'
+    }
+    return reversed
+}
+console.log(reverse3('abcd'));
+module.exports = reverse3;
